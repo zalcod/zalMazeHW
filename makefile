@@ -1,20 +1,9 @@
-# Makefile
+hepsi: derle calistir
 
-CXX = g++
-CXXFLAGS = -I./include -std=c++14
-LDFLAGS = -L./lib
-
-SRC = $(wildcard src/*.cpp)
-OBJ = $(SRC:.cpp=.o)
-TARGET = bin/output_file
-
-all: $(TARGET)
-
-$(TARGET): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $@ $^
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-clean:
-	rm -f $(OBJ) $(TARGET)
+derle:
+	g++ -I ./include/ -o ./lib/Konum.o -c ./src/Konum.cpp
+	g++ -I ./include/ -o ./lib/Labirent.o -c ./src/Labirent.cpp
+	g++ -I ./include/ -o ./bin/Test ./lib/Konum.o ./lib/Labirent.o ./src/Test.cpp
+	
+calistir:
+	./bin/Test
