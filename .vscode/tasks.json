@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-I./include",
+                "-o", "${workspaceFolder}/output_file",
+                "${workspaceFolder}/src/Test.cpp",
+                "${workspaceFolder}/src/Labirent.cpp",
+                "${workspaceFolder}/src/Konum.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
